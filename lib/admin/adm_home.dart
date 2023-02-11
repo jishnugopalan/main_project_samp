@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 // ignore: unused_import
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mainproject/admin/menulist.dart';
 import 'package:mainproject/admin/screens/dashboard_screen.dart';
 import 'package:mainproject/admin/screens/dep_screen.dart';
 import 'package:mainproject/admin/screens/lecture_screen.dart';
@@ -75,7 +76,7 @@ class _AdmnHomeState extends State<AdmnHome> {
   }
 }
 
-Widget headerDrawer() {
+headerDrawer() {
   return Container(
     width: double.infinity,
     height: 250,
@@ -112,31 +113,34 @@ Widget headerDrawer() {
   );
 }
 
-Widget drawerList() {
+drawerList() {
   return Container(
     padding: EdgeInsets.only(top: 10, left: 5),
     child: Column(
       children: [
-        menuList(1, "Dashboard", Icons.dashboard_outlined,
-            currentPage == DrawerSections.Dashboard ? true : false),
-        menuList(2, "Department", Icons.school_outlined,
-            currentPage == DrawerSections.department ? true : false),
-        menuList(3, "Lectures", Icons.people_alt_rounded,
-            currentPage == DrawerSections.Lectures ? true : false),
-        menuList(4, "Students", Icons.person_2,
-            currentPage == DrawerSections.Students ? true : false),
-        menuList(5, "Settings", Icons.settings,
-            currentPage == DrawerSections.Settings ? true : false),
-        menuList(6, "Log Out", Icons.exit_to_app,
-            currentPage == DrawerSections.Log_Out ? true : false)
+       
+
+            MenuList(id: 1, title: "Dashboard", icon: Icons.dashboard_outlined, selected: currentPage == DrawerSections.Dashboard ? true : false),
+            MenuList(id: 1, title: "Dashboard", icon: Icons.dashboard_outlined, selected: currentPage == DrawerSections.Dashboard ? true : false)
+
+        // menuList(2, "Department", Icons.school_outlined,
+        //     currentPage == DrawerSections.department ? true : false),
+        // menuList(3, "Lectures", Icons.people_alt_rounded,
+        //     currentPage == DrawerSections.Lectures ? true : false),
+        // menuList(4, "Students", Icons.person,
+        //     currentPage == DrawerSections.Students ? true : false),
+        // menuList(5, "Settings", Icons.settings,
+        //     currentPage == DrawerSections.Settings ? true : false),
+        // menuList(6, "Log Out", Icons.exit_to_app,
+        //     currentPage == DrawerSections.Log_Out ? true : false)
       ],
     ),
   );
 }
 
-void gotoMenus() {
-  Navigator.pushNamed(BuildContext as BuildContext context, 'register');
-}
+// void gotoMenus() {
+//   Navigator.pushNamed(context, 'register');
+// }
 
 // Widget menuList(int id, String title, IconData icon, bool selected) {
 //   return Material(
@@ -167,11 +171,12 @@ void gotoMenus() {
 //     ),
 //   );
 // }
-Widget menuList(int id, String title, IconData icon, bool selected) {
+menuList(int id, String title, IconData icon, bool selected) {
   return Container(
     color: selected ? Colors.grey[300] : Colors.transparent,
     child: InkWell(
       onTap: () {
+       // gotoMenus();
         // Navigator.pop(context as BuildContext);
         //Navigator.pop(context);
         // setState(() {
